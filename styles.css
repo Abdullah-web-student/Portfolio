@@ -1,0 +1,1065 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Poppins", system-ui;
+}
+
+body {
+    /* padding: 30px; */
+    padding-bottom: 0px;
+    background-color: #081b29;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    opacity: 0;
+    animation: slideIn 1s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+header{
+    padding: 30px;
+    padding-bottom: 0px;
+}
+
+.logo {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+nav {
+    width: 500px;
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    justify-content: space-evenly;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 4px;
+    /* Adds some space for the underline */
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #00abf0;
+    /* Underline color */
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    /* Hidden underline */
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #00abf0;
+    /* Changes text color on hover */
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    /* Underline expands from right to left */
+    transform-origin: left;
+    /* Makes it expand from left to right */
+}
+
+.active {
+    color: #00abf0;
+    font-weight: 800;
+}
+
+.container {
+    margin-top: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+    padding: 30px;
+}
+
+#home {
+    width: 700px;
+}
+
+#home h2 {
+    font-size: 52px;
+    color: white;
+    animation: slideIn 1.2s ease-in-out forwards;
+}
+
+#tagline {
+    margin-top: 2px;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #00abf0;
+    font-weight: bolder;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+.des {
+    font-size: 18px;
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-weight: 300;
+    animation: fadeIn 2.5s ease-in-out forwards;
+}
+
+/* Base styles */
+button {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+button::before,
+button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    transition: transform 0.5s ease;
+}
+
+/* Button 1 (Fill in like waves on hover) */
+.btn1 {
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    background-color: #00abf0;
+    color: white;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.btn1::before {
+    background-color: white;
+    transform: scaleX(0);
+    /* Start with no fill */
+    transform-origin: left;
+    /* Starts filling from left */
+    z-index: -1;
+}
+
+.btn1:hover::before {
+    transform: scaleX(1);
+    /* Fills with white color from left to right */
+}
+
+.btn1:hover {
+    color: #00abf0;
+    /* Text color changes on hover */
+}
+
+/* Button 2 (Fill in with background color and remove like waves) */
+.btn2 {
+    background-color: transparent;
+    color: #00abf0;
+    border: 2px solid #00abf0;
+    border-radius: 6px;
+    margin-left: 20px;
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn2::after {
+    background-color: #00abf0;
+    transform: scaleX(0);
+    /* Starts with no background color */
+    transform-origin: right;
+    /* Starts filling from the right */
+    z-index: -1;
+}
+
+.btn2:hover::after {
+    transform: scaleX(1);
+    /* Fills with blue from right to left */
+}
+
+.btn2:hover {
+    color: white;
+    /* Text color changes on hover */
+}
+
+.social-icons {
+    margin-top: 35px;
+    display: flex;
+    gap: 14px;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+    transition: all 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+    border: 1px solid white;
+}
+
+.icon:hover {
+    background-color: transparent;
+    border: 1px solid #00abf0;
+    color: #00abf0;
+    transform: rotate(15deg);
+    /* Rotate icon slightly */
+}
+
+/* Skills Section */
+.myskills {
+    text-align: center;
+    font-size: 32px;
+    color: #00abf0;
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+
+/* Container for Skills Section */
+.container2 {
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* Box 1 - Technical Skills */
+.box1 {
+    width: 400px;
+    height: auto;
+    background-color: #081b29;
+    margin-right: 20px;
+    border-radius: 10px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.55);
+    padding: 20px;
+}
+
+.box1:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.75);
+    /* animation: html 2s ease-in-out forwards; */
+}
+
+.box1 h2 {
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+
+.box1 ul li {
+    list-style: none;
+    margin-bottom: 12px;
+    margin-top: -5px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.skills-icons {
+    font-size: 34px;
+    color: aqua;
+}
+
+.html {
+    color: #E44D26;
+}
+
+.css {
+    color: #3498DB;
+}
+
+.js {
+    color: #F7E03B;
+}
+
+.uiux {
+    color: #FF5722;
+}
+
+.bar {
+    width: 100%;
+    height: 6px;
+    background-color: black;
+    transition: width 0.5s ease;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.fill {
+    width: 0%;
+    height: 6px;
+    background-color: #00abf0;
+    transition: width 0.5s ease;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.html-bar {
+    animation: html 2s ease-in-out forwards;
+
+}
+
+@keyframes html {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+.css-bar {
+    animation: css 2s ease-in-out forwards;
+}
+
+@keyframes css {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
+    }
+}
+
+
+.js-bar {
+    animation: js 2s ease-in-out forwards;
+}
+
+@keyframes js {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 85%;
+    }
+}
+
+.uiux-bar {
+    animation: uiux 2s ease-in-out forwards;
+}
+
+@keyframes uiux {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 90%;
+    }
+}
+
+
+.circle-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* margin-top: 40px; */
+    margin: 20px 0px 20px 0px;
+}
+
+.circle {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+}
+
+.progress-circle {
+    transform: rotate(-90deg);
+    /* Rotate to start progress from top */
+}
+
+.background {
+    fill: none;
+    stroke: black;
+    stroke-width: 10;
+    opacity: 0.3;
+}
+
+.progress {
+    fill: none;
+    stroke-width: 10;
+    stroke-dasharray: 314;
+    /* 2 * pi * r (for a circle of radius 50) */
+    stroke-dashoffset: 314;
+    transition: stroke-dashoffset 1s ease-in-out;
+    stroke-linecap: round;
+}
+
+.circle-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Colors for each skill circle */
+.html-circle .progress {
+    stroke: #E44D26;
+    /* HTML5 color */
+}
+
+.css-circle .progress {
+    stroke: #1572B6;
+    /* CSS3 color */
+}
+
+.js-circle .progress {
+    stroke: #F7DF1E;
+    /* JavaScript color */
+}
+
+.uiux-circle .progress {
+    stroke: #4CAF50;
+    /* UI/UX color */
+}
+
+/* Animation for each circle */
+.html-circle .progress {
+    animation: htmlProgress 1s ease-in-out forwards;
+}
+
+.css-circle .progress {
+    animation: cssProgress 1s ease-in-out forwards;
+}
+
+.js-circle .progress {
+    animation: jsProgress 1s ease-in-out forwards;
+}
+
+.uiux-circle .progress {
+    animation: uiuxProgress 1s ease-in-out forwards;
+}
+
+/* Keyframes for progress animations */
+@keyframes htmlProgress {
+    0% {
+        stroke-dashoffset: 314;
+    }
+
+    100% {
+        stroke-dashoffset: 31.4;
+        /* 90% of the circle */
+    }
+}
+
+@keyframes cssProgress {
+    0% {
+        stroke-dashoffset: 314;
+    }
+
+    100% {
+        stroke-dashoffset: 31.4;
+        /* 90% of the circle */
+    }
+}
+
+@keyframes jsProgress {
+    0% {
+        stroke-dashoffset: 314;
+    }
+
+    100% {
+        stroke-dashoffset: 94.2;
+        /* 70% of the circle */
+    }
+}
+
+@keyframes uiuxProgress {
+    0% {
+        stroke-dashoffset: 314;
+    }
+
+    100% {
+        stroke-dashoffset: 157;
+        /* 50% of the circle */
+    }
+}
+
+
+.circle-container {
+    background-color: #081b29;
+    /* padding: 30px; */
+    width: 500px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.55);
+}
+
+.circle-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.75);
+    transition: transform 0.3s ease, box-shadow 0.3s ease-in-out;
+}
+
+
+.box2 h2 {
+    font-size: 20px;
+    color: white;
+
+}
+
+
+
+
+/* services */
+.container-services {
+    margin-top: 80px;
+    padding: 0px 30px 0px 30px;
+    opacity: 0;
+    transform: translateY(50px); /* Initially move the section down */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.container-services.visible {
+    opacity: 1;
+    transform: translateY(0); /* Move back to original position */
+}
+
+.container-services h2 {
+    font-size: 32px;
+    color: #00abf0;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.row1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.services {
+    width: 260px;
+    height: 280px;
+    background-color: #3498DB;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.55);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.services h3 {
+    font-size: 18px;
+    color: white;
+}
+
+.services p {
+    font-size: 16px;
+    color: white;
+    margin-top: 20px;
+}
+
+.services:hover {
+    background-color: #2980B9;
+    transform: scale(1.05);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    color: white;
+}
+
+.wdd, .lpd {
+    background-color: #081b29;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.55);
+}
+
+/* projects start here */
+
+/* Projects Section */
+.myprojects {
+    margin-top: 100px;
+    font-size: 32px;
+    color: #00abf0;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.container3 {
+    position: relative;
+    overflow: hidden;
+    padding: 0px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+/* Project Card Styling */
+.project {
+    width: 350px;
+    height: 240px;
+    background-color: #1572B6;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.75);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    padding: 20px;
+    margin-top: 30px;
+    outline: 3px solid #00abf0;
+    border-radius: 10px;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px); /* Initially translated down */
+}
+
+
+
+/* Project Card Heading */
+.project h3 {
+    font-size: 20px;
+    color: white;
+}
+
+/* View Project Button */
+.project button {
+    font-size: 14px;
+    color: #00abf0;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid #00abf0;
+    border-radius: 4px;
+    margin-top: 150px;
+    transition: color 0.4s ease;
+    cursor: pointer;
+}
+
+.project button::after {
+    background-color: #00abf0;
+    transform: scaleX(0);
+    /* Starts with no background color */
+    transform-origin: right;
+    /* Starts filling from the right */
+    z-index: -1;
+}
+
+.project button:hover::after {
+    transform: scaleX(1);
+    /* Fills with blue from right to left */
+}
+
+.project button:hover {
+    color: white;
+    /* Text color changes on hover */
+}
+
+
+
+
+
+/* Animation */
+.project.animate {
+    opacity: 1;
+    transform: translateY(0); /* Moves up to original position */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.project.animate:nth-child(1) {
+    transition-delay: 0.2s;
+}
+
+.project.animate:nth-child(2) {
+    transition-delay: 0.4s;
+}
+
+.project.animate:nth-child(3) {
+    transition-delay: 0.6s;
+}
+
+.project.animate:nth-child(4) {
+    transition-delay: 0.8s;
+}
+
+.project.animate:nth-child(5) {
+    transition-delay: 1s;
+}
+
+.project.animate:nth-child(6) {
+    transition-delay: 1.2s;
+}
+
+.project:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+
+
+}
+
+
+
+.quicksnacks{
+    background-image: url(images/quicksnacks.png);
+    /* rgba on background image */
+    background-color: rgba(0, 0, 0, 0.55);
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size: cover; 
+}
+.daniyalsweets{
+    background-image: url(images/daniyalsweets.png);
+    /* rgba on background image */
+    background-color: rgba(0, 0, 0, 0.55);
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size: cover; 
+}
+.alibaba{
+    background-image: url(images/alibaba.png);
+    /* rgba on background image */
+    background-color: rgba(0, 0, 0, 0.55);
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size: cover; 
+}
+.todo{
+    background-image: url(images/todo.png);
+    /* rgba on background image */
+    background-color: rgba(0, 0, 0, 0.55);
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size: cover; 
+}
+.sign{
+    background-image: url(images/sign.png);
+    /* rgba on background image */
+    background-color: rgba(0, 0, 0, 0.55);
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size: cover; 
+}
+.more{
+    background-image: url(images/download.jfif);
+    /* rgba on background image */
+    background-color: rgba(0, 0, 0, 0.55);
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size: cover; 
+}
+
+
+
+/* my projects end here */
+
+/* about section starts here */
+
+
+.container4 {
+    margin-top: 100px;
+    padding: 0px 20px 0px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.section1 {
+    width: 630px;
+    color: white;
+    padding: 20px;
+    background-color: #081b29;
+    /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.55); */
+    border-radius: 8px;
+}
+
+
+
+.section1 h2 {
+    font-size: 32px;
+    color: #00abf0;
+    margin-bottom: 20px;
+}
+
+.section1 p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+
+.edu {
+    width: auto;
+    color: white;
+    padding: 20px;
+    background-color: #2980B9;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.55);
+    border-radius: 8px;
+}
+
+.edu h2 {
+    font-size: 26px;
+    color: #081b29;
+    margin-bottom: 20px;
+}
+
+.edu p {
+    font-size: 16px;
+    margin-bottom: 12px;
+    text-align: justify;
+}
+
+.edu span {
+    font-size: 16px;
+    color: #081b29;
+    font-weight: bold;
+}
+
+
+.exp {
+    margin-top: 20px;
+    background-color: #081b29;
+
+}
+
+.exp h2 {
+    color: #00abf0;
+    font-size: 26px;
+}
+
+.exp p {
+    font-size: 16px;
+}
+
+.exp span {
+    color: orangered;
+    font-weight: normal;
+}
+
+/* Add this code to your existing CSS */
+
+@keyframes popIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.55);
+    }
+}
+
+.animated {
+    animation: popIn 0.6s ease-out forwards;
+}
+
+.section1, .edu, .exp {
+    opacity: 0;
+    transform: translateY(20px);
+}
+.edu {
+    animation-delay: 0.5s;
+}
+.exp {
+    animation-delay: 1s;
+}
+
+
+
+.container5 {
+    margin-top: 80px;
+    padding: 0px 20px 0px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.contact {
+    text-align: center;
+    font-size: 38px;
+    margin-top: 100px;
+    color: #00abf0;
+}
+
+.contact1 {
+    width: 400px;
+    height: 260px;
+    padding: 20px;
+    background-color: #2980B9;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.contact1 h2 {
+    color: #081b29;
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+#c_des {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 20px;
+
+}
+
+.contact1 p {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.contact1 a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 100px;
+}
+
+.contact1 span {
+    color: #081b29;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 4px;
+}
+
+
+.contact2 {
+    width: auto;
+    background-color: #081b29;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.55);
+    padding: 20px;
+}
+
+.contact2 h2 {
+    color: #00abf0;
+    font-size: 32px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+
+}
+.contact2 form label {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block;
+
+}
+
+.contact2 input {
+    width: 400px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    color: #081b29;
+    font-size: 16px;
+    outline: none;
+}
+
+.contact2 textarea {
+    width: 400px;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    color: #081b29;
+    font-size: 16px;
+    outline: none;
+    resize: vertical;
+}
+
+.contact2 button {
+    width: 200px;
+    background-color: #2980B9;
+    color: #081b29;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+/* footer */
+
+.footer {
+    background-color: #f5f5f5;
+    color: #081b29;
+    text-align: center;
+    margin-top: 100px;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer p {
+    font-size: 14px;
+    margin-bottom: 0px;
+}
