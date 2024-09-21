@@ -172,8 +172,7 @@ let btn_sbt = document.getElementById('sbt');
 let close_btn = document.getElementById('close')
 
 function msg() {
-    message.innerHTML = `<b> ${nam.value} </b> you can reach me on linkdlen or github you can also reach me on my whatssap number
-    and i get your email: <b> ${eml.value} </b>`;
+    message.innerHTML = `<b> ${nam.value}</b> You can reach me on LinkedIn or GitHub. Feel free to also contact me via WhatsApp or email.`;
     message_body.style.display = 'block';
 }
 btn_sbt.addEventListener('click', msg);
@@ -181,27 +180,6 @@ btn_sbt.addEventListener('click', msg);
 close_btn.addEventListener('click', () => {
     message_body.style.display = 'none';
 });
-
-// let li = document.getElementsByClassName('link');
-
-// for (i = 0; i <= li.length; i++) {
-//     let atr = li[i].getAttribute('Class');
-
-//     li[i].addEventListener('click', function () {
-
-//         this.classList.add('active');
-//         for (let j = 0; j < li.length; j++) {
-//             if (li[j]!= this) {
-//                 li[j].classList.remove('active');
-//             }
-//         }
-//     });
-
-// };
-
-
-
-
 
 
 
