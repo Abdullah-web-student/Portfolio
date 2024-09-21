@@ -35,18 +35,17 @@ body {
     }
 }
 
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px;
-    /* padding-left: 30px; */
     opacity: 0;
     animation: slideIn 1s ease-in-out forwards;    
 }
 
-.sticky{
-        /* width: 96%; */
+.sticky {
     position: sticky;
     top: 0;
     background-color: #081b29;
@@ -62,7 +61,6 @@ header {
         transform: translateX(-50px);
         opacity: 0;
     }
-
     to {
         transform: translateX(0);
         opacity: 1;
@@ -93,7 +91,6 @@ nav ul li a {
     position: relative;
     display: inline-block;
     padding-bottom: 4px;
-    /* Adds some space for the underline */
     transition: color 0.3s ease;
 }
 
@@ -103,31 +100,68 @@ nav ul li a::after {
     width: 100%;
     height: 2px;
     background-color: #00abf0;
-    /* Underline color */
     bottom: 0;
     left: 0;
     transform: scaleX(0);
-    /* Hidden underline */
     transform-origin: right;
     transition: transform 0.3s ease;
 }
 
 nav ul li a:hover {
     color: #00abf0;
-    /* Changes text color on hover */
 }
 
 nav ul li a:hover::after {
     transform: scaleX(1);
-    /* Underline expands from right to left */
     transform-origin: left;
-    /* Makes it expand from left to right */
 }
 
 .active {
     color: #00abf0;
     font-weight: 800;
 }
+
+/* Media Queries for responsiveness */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .logo {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 15px;
+    }
+
+    .logo {
+        font-size: 12px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
 
 .container {
     margin-top: 100px;
@@ -1086,3 +1120,89 @@ button::after {
     font-size: 14px;
     margin-bottom: 0px;
 }
+
+
+
+
+.message{
+    width: 600px;
+    background-color: #00abf0;
+    color: white;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    position: fixed;
+    top: 10%;
+    left: 30%;
+    z-index: 999;
+    display: none;
+    animation: slideInn 0.5s ease-in-out forwards;
+    transition: all 0.5s ease-in-out;
+}
+
+@keyframes slideInn {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+#message-text{
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#close{
+    background-color: #f44336;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+#close:hover{
+    background-color: #e53935;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    transition: all 0.3s ease-in-out;
+
+}
+
+b{
+    color: #081b29;
+    font-size: 18px;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #081b29;
+    margin-top: 10px;
+    border-radius: 10px;
+    background: #081b29;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #00abf0; 
+    border-radius: 10px;
+    transition: background-color 0.3s ease; /* Add smooth transition */
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #004c70; /* Darker shade on hover */
+  }
+  

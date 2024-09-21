@@ -1,9 +1,20 @@
+let li = document.getElementsByClassName('link');
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const servicesSection = document.querySelector('.container-services');
 
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
+
             if (entry.isIntersecting) {
+                // li[0].classList.add('active')
+                // li[1].classList.remove('active')
+                // li[2].classList.remove('active')
+                // li[3].classList.remove('active')
+                // li[4].classList.remove('active')
+
+
                 servicesSection.classList.add('visible');
                 observer.unobserve(servicesSection); // Stop observing once animation is triggered
             }
@@ -26,6 +37,7 @@ window.addEventListener('scroll', function () {
                 card.classList.add('animate');
             }, index * 200); // Adding a delay for each card
         });
+
     }
 });
 
@@ -39,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+
                 entry.target.classList.add('animated');
                 observer.unobserve(entry.target);
             }
@@ -95,40 +108,230 @@ const colors = [
     "#001305",
     "#000d04",
     "#000603"
-  ];
-  
+];
+
 circles.forEach(function (circle, index) {
-  circle.x = 0;
-  circle.y = 0;
-  circle.style.backgroundColor = colors[index % colors.length];
+    circle.x = 0;
+    circle.y = 0;
+    circle.style.backgroundColor = colors[index % colors.length];
 });
 
-window.addEventListener("mousemove", function(e){
-  coords.x = e.clientX;
-  coords.y = e.clientY;
-  
+window.addEventListener("mousemove", function (e) {
+    coords.x = e.clientX;
+    coords.y = e.clientY;
+
 });
 
 function animateCircles() {
-  
-  let x = coords.x;
-  let y = coords.y;
-  
-  circles.forEach(function (circle, index) {
-    circle.style.left = x - 12 + "px";
-    circle.style.top = y - 12 + "px";
-    
-    circle.style.scale = (circles.length - index) / circles.length;
-    
-    circle.x = x;
-    circle.y = y;
 
-    const nextCircle = circles[index + 1] || circles[0];
-    x += (nextCircle.x - x) * 0.3;
-    y += (nextCircle.y - y) * 0.3;
-  });
- 
-  requestAnimationFrame(animateCircles);
+    let x = coords.x;
+    let y = coords.y;
+
+    circles.forEach(function (circle, index) {
+        circle.style.left = x - 12 + "px";
+        circle.style.top = y - 12 + "px";
+
+        circle.style.scale = (circles.length - index) / circles.length;
+
+        circle.x = x;
+        circle.y = y;
+
+        const nextCircle = circles[index + 1] || circles[0];
+        x += (nextCircle.x - x) * 0.3;
+        y += (nextCircle.y - y) * 0.3;
+    });
+
+    requestAnimationFrame(animateCircles);
 }
 
 animateCircles();
+
+
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const overlay = document.createElement('div');
+overlay.classList.add('overlay');
+document.body.appendChild(overlay);
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    overlay.classList.toggle('active');
+});
+
+overlay.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    overlay.classList.remove('active');
+});
+
+
+let message_body = document.getElementById('message');
+let message = document.getElementById('message-text');
+let nam = document.getElementsByName('name')[0];
+let eml = document.getElementsByName('email')[0];
+let btn_sbt = document.getElementById('sbt');
+let close_btn = document.getElementById('close')
+
+function msg() {
+    message.innerHTML = `<b> ${nam.value} </b> you can reach me on linkdlen or github you can also reach me on my whatssap number
+    and i get your email: <b> ${eml.value} </b>`;
+    message_body.style.display = 'block';
+}
+btn_sbt.addEventListener('click', msg);
+
+close_btn.addEventListener('click', () => {
+    message_body.style.display = 'none';
+});
+
+// let li = document.getElementsByClassName('link');
+
+// for (i = 0; i <= li.length; i++) {
+//     let atr = li[i].getAttribute('Class');
+
+//     li[i].addEventListener('click', function () {
+
+//         this.classList.add('active');
+//         for (let j = 0; j < li.length; j++) {
+//             if (li[j]!= this) {
+//                 li[j].classList.remove('active');
+//             }
+//         }
+//     });
+
+// };
+
+
+
+
+
+
+
+
+
+// home
+
+document.addEventListener('DOMContentLoaded', function () {
+    const servicesSection = document.querySelector('.container-services');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+                li[0].classList.add('active')
+                li[1].classList.remove('active')
+                li[2].classList.remove('active')
+                li[3].classList.remove('active')
+                li[4].classList.remove('active')
+
+
+            }
+        });
+    });
+
+    observer.observe(servicesSection);
+});
+
+
+
+// projects
+
+
+
+window.addEventListener('scroll', function () {
+    const projectsSection = document.querySelector('.container3');
+    const projectsPosition = projectsSection.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.2;
+
+    if (projectsPosition < screenPosition) {
+        li[0].classList.remove('active')
+        li[1].classList.remove('active')
+        li[2].classList.remove('active')
+        li[3].classList.add('active')
+        li[4].classList.remove('active')
+
+        const projectCards = document.querySelectorAll('.project');
+        projectCards.forEach((card, index) => {
+            setTimeout(() => {
+                card.classList.add('animate');
+            }, index * 200); // Adding a delay for each card
+        });
+
+    }
+});
+
+
+// about
+
+
+window.addEventListener('scroll', function () {
+    const projectsSection = document.querySelector('.container4');
+    const projectsPosition = projectsSection.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.2;
+
+    if (projectsPosition < screenPosition) {
+        li[0].classList.remove('active')
+        li[1].classList.add('active')
+        li[2].classList.remove('active')
+        li[3].classList.remove('active')
+        li[4].classList.remove('active')
+
+        const projectCards = document.querySelectorAll('.project');
+        projectCards.forEach((card, index) => {
+            // setTimeout(() => {
+            // card.classList.add('animate');
+            // }, index * 200); 
+            // Adding a delay for each card
+        });
+
+    }
+});
+
+
+// contact
+
+
+window.addEventListener('scroll', function () {
+    const projectsSection = document.querySelector('.container5');
+    const projectsPosition = projectsSection.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.2;
+
+    if (projectsPosition < screenPosition) {
+        li[0].classList.remove('active')
+        li[1].classList.remove('active')
+        li[2].classList.remove('active')
+        li[3].classList.remove('active')
+        li[4].classList.add('active')
+
+        const projectCards = document.querySelectorAll('.project');
+        projectCards.forEach((card, index) => {
+            // setTimeout(() => {
+            // card.classList.add('animate');
+            // }, index * 200); 
+            // Adding a delay for each card
+        });
+
+    }
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const servicesSection = document.querySelector('.container2');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+                li[0].classList.remove('active')
+                li[1].classList.remove('active')
+                li[2].classList.add('active')
+                li[3].classList.remove('active')
+                li[4].classList.remove('active')
+
+
+            }
+        });
+    });
+
+    observer.observe(servicesSection);
+});
+
